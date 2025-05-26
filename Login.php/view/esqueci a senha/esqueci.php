@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>esqueci a senha</title>
-    <link rel="stylesheet" href="esqueci.css">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Email Atividade Jean</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../CSS/esqueci.css'>
 </head>
 <body>
-    <main class="container">
-        <form>
-            <h1>Esqueci a senha</h1>
-            <p>Enviaremos um email com informações para a alteração de sua senha.</p>
-                <div class="input-box">
-                    <input placeholder="email" type="email" name="email">
-                 </div>
-            <button type="submit" class="send">Enviar</button>
-            <a href="index.php">Voltar ao Login</a>
-            </form>
-        </main>
+    
+        <div class="container">
+            <h1>Atividade Jean</h1>
+        <form id="form" action="../../controller/recuperaçãocontroller.php" method="POST">
+        <div class="input-box">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" />
+</div>
+
+                <br>
+                <br>
+                <button type="submit" class="send">Verificar</button>
+
+        </div>  
+
+        </form>
+</body>
+
+</html>

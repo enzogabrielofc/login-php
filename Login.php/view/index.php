@@ -9,12 +9,12 @@
 </head>
 <body>
     <main class="container">
-        <form method="POST" action="Login.php">
+    <form id="form" action="../../controller/authcontroller.php" method="POST">
             <h1>Login</h1>
 
             <div class="input-box">
                 <label for="email">Nome de Usuário</label>
-                <input placeholder="usuario" type="email" name="email" required>
+                <input placeholder="usuario" type="email" name="usuario" required>
             </div>
 
             <div class="input-box">
@@ -22,7 +22,7 @@
                 <input placeholder="senha" type="password" name="senha" required>
             </div>
 
-            <button type="submit" class="login btn btn-primary mt-3">Login</button>
+            <input type="submit" value="Logar" id="botao" class="login btn btn-primary mt-3">
 
             <div class="remenber-forgot mt-2">
                 <a href="esqueci a senha/esqueci.php">Esqueci a senha</a>
@@ -34,4 +34,4 @@
         </form>
     </main>
 </body>
-</html>
+</html> 

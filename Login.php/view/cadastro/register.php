@@ -10,7 +10,7 @@
 <body>
 <div class="form-container">
         <h1>Criar Conta</h1>
-        <form action="/LOGIN.PHP/controller/CadastroController.php" method="POST">
+        <form id="form" action="../../controller/CadastroController.php" method="POST">
             <div class="input-wrapper">
                 <label for="nome">Nome completo</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
@@ -19,6 +19,11 @@
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
+            <div class="input-wrapper">
+                <label for="email">Telefone</label>
+                <input type="telefone" id="telefone" name="telefone" placeholder="Telefone" required>
+            </div>
+
             <div class="input-wrapper">
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>

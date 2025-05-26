@@ -1,56 +1,21 @@
 <?php
+session_start();
+require_once '../model/Authmodel.php'; 
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['usuario'];
+    $senha = $_POST['senha'];
 
-session_start(); 
+    $auth = new AuthModel();
+    $result = $auth->login($email, $senha);
 
-require_once 'Conexao.php';
-
-class AuthController
-{
-    private $conn;
-
-    public function __construct()
-    {
- 
-        $db = new Conexao();
-        $this->conn = $db->conectar();
-    }
-
-    public function login($email, $senha)
-    {
-
-        $query = "SELECT id, email, senha FROM usuarios WHERE email = :email LIMIT 1";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-
-        if ($stmt->rowCount() == 1) {
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-          
-            if (password_verify($senha, $usuario['senha'])) {
-                
-                $_SESSION['usuario_id'] = $usuario['id'];
-                $_SESSION['usuario_email'] = $usuario['email'];
-
-                header('Location: dashboard.php');
-                exit();
-            } else {
-                
-                echo "Senha incorreta!";
-            }
-        } else {
-          
-            echo "Usuário não encontrado!";
-        }
-    }
-
-    public function logout()
-    {
-        session_start();
-        session_destroy();
-        header('Location: login.php');
+    if ($result) {
+        $_SESSION['msg'] = "Login realizado com sucesso!";
+        header("Location: ../view/dashboard.php"); 
+        exit();
+    } else {
+        $_SESSION['erro'] = "E-mail ou senha inválidos!";
+        header("Location: ../view/login.php");
         exit();
     }
 }
-?>
